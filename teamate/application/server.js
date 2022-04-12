@@ -61,9 +61,13 @@ async function cc_call(fn_name, args) {
         p = args[1];
         s = args[2];
         result = await contract.submitTransaction("addRating", e, p, s);
-    } else if (fn_name == "readRating")
+    } else if (fn_name == "readRating") {
         result = await contract.evaluateTransaction("readRating", args);
-    else result = "not supported function";
+    } else if (fn_name == "submitReport") {        
+        result = await contract.submitTransaction("submitReport", args[0], args[1], args[2]);
+    } else {
+        result = "not supported function";
+    }
 
     return result;
 }
@@ -74,6 +78,27 @@ app.post("/mate", async (req, res) => {
     console.log("add mate email: " + email);
 
     result = await cc_call("addUser", email);
+
+    const myobj = { result: "success" };
+    res.status(200).json(myobj);
+});
+
+// app.get("/report", async (req, res) => {
+//     const { reportSeq } = req.params;
+//     console.log("get report:" + reportSeq);
+
+//     result = await cc_call("getReport", reportSeq);
+
+//     const myobj = { result: "success" };
+//     res.status(200).json(myobj);
+// })
+
+app.post("/report", async (req, res) => {
+    const { reportName, attackPoint, reporter } = req.body;
+    console.log("submit report: " + reportName + attackPoint + reporter);
+
+    var args = [reportName, attackPoint, reporter];
+    result = await cc_call("submitReport", args);
 
     const myobj = { result: "success" };
     res.status(200).json(myobj);

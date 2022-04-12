@@ -1,11 +1,28 @@
-# Hyperledger Fabric Class Samples 예제
+teamte 를 복사해서 새로 만들어서 해보자.
 
-## [basic-network](https://github.com/bc8c/BS22_class-examples/tree/main/basic-network).
+네트워크 실행
+./startnetwork.sh
+./createchannel.sh
+./setAnchorPeerUpdate.sh 
+./deployCC.sh ( 왜이렇게 오래걸리지?)
+—————————————
+application 폴더로 이동해서
 
-Network configuration
+npm i
 
-- 2 organizations ( ORG1 and ORG2 )
-- 2 peers ( one peer for each organization )
-- 2 couchdb (one couchdb for each peer )
+./ccp-generate.sh 만든다.
+./getCert.sh
 
-## [basic-network-3Org](https://github.com/bc8c/BS22_class-examples/tree/main/basic-network-3Org).
+node addToWallet.js
+appUser 가 잘 들어가고
+node server.js
+browser 에서 teamate 확인 할 수 있다.
+
+Q) npm error
+A) node module 폴더가 없으면 안된다. 
+application 폴더에서 npm i 해야한다.
+
+http://localhost:5984/_utils/#login
+id : admin
+pw : adminpw
+couch db 접속방법
