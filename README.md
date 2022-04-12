@@ -1,5 +1,3 @@
-teamte 를 복사해서 새로 만들어서 해보자.
-
 네트워크 실행 순서
 
 ./startnetwork.sh
