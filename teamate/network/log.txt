@@ -1,1 +1,0 @@
-{"user":"abc@gmail.com","average":400,"rates":[{"projecttitle":"myproj","score":300},{"projecttitle":"myproj2","score":500}]}
