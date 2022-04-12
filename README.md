@@ -1,11 +1,12 @@
 teamte 를 복사해서 새로 만들어서 해보자.
 
-네트워크 실행
+네트워크 실행 순서
+
 ./startnetwork.sh
 ./createchannel.sh
 ./setAnchorPeerUpdate.sh 
-./deployCC.sh ( 왜이렇게 오래걸리지?)
-—————————————
+./deployCC.sh
+
 application 폴더로 이동해서
 
 npm i
